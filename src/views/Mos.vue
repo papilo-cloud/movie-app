@@ -91,7 +91,7 @@ label{
     align-items: center; */
   }
 
-
+ 
 .seriesview{
   position: relative;
   margin: 0;

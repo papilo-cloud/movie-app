@@ -1,28 +1,50 @@
 <template>
   <div class="cont">
     <div class="input">
-    <label>
-      <input v-model="search" type="search" placeholder="Search for TV series here" />
-    </label>
-</div>
+      <label>
+        <input v-model="search" type="search" placeholder="Search for bookmarked shows" />
+      </label>
+    </div>
+
+    <h2>Bookmarked Movies</h2>
     <div class="seriesview">
-    <div class="series" v-for="movie in searchInput" :key="movie.title">
-      <div class="hover">
-          <img src="../assets/icon-play.svg" alt=""> <span>play</span>
+      <div class="series" v-for="movie in searchInput" :key="movie.title" v-if="movie.category === 'Movie'">
+        <div class="hover">
+            <img src="../assets/icon-play.svg" alt=""> <span>play</span>
         </div> 
-      <div class="booked">
-          <span v-if="movie.isBookmarked" class="book"><img src="../assets/bookMarkFull.svg" :alt="movie.title" /></span>
-          <span v-if="!movie.isBookmarked" class="book"><img src="../assets/icon-bookmark-empty.svg" :alt="movie.title"/></span>
-      </div>
-      <div class="img">
-        <img :src="movie.thumbnail.regular.small" :alt="movie.title">
-      </div>
-      <div class="msg">
-        <p><span>{{movie.year}}</span><span class="span"><img class="svg" src="../assets/icon-category-tv.svg" alt="" /> {{movie.category}}</span><span class="last">{{movie.rating}}</span></p>
-        <p>{{movie.title}}</p>
+        <div class="booked">
+            <span v-if="movie.isBookmarked" class="book"><img src="../assets/bookMarkFull.svg" :alt="movie.title" /></span>
+            <span v-if="!movie.isBookmarked" class="book"><img src="../assets/icon-bookmark-empty.svg" :alt="movie.title"/></span>
+        </div>
+        <div class="img">
+          <img :src="movie.thumbnail.regular.small" :alt="movie.title">
+        </div>
+        <div class="msg">
+          <p><span>{{movie.year}}</span><span class="span"><img class="svg" src="../assets/icon-category-tv.svg" alt="" /> {{movie.category}}</span><span class="last">{{movie.rating}}</span></p>
+          <p>{{movie.title}}</p>
+        </div>
       </div>
     </div>
-</div>
+
+    <h2>Bookmarked TV Series</h2>
+    <div class="seriesview">
+      <div class="series" v-for="movie in searchInput" :key="movie.title"v-if="movie.category === 'TV Series'" >
+        <div class="hover">
+            <img src="../assets/icon-play.svg" alt=""> <span>play</span>
+        </div> 
+        <div class="booked">
+            <span v-if="movie.isBookmarked" class="book"><img src="../assets/bookMarkFull.svg" :alt="movie.title" /></span>
+            <span v-if="!movie.isBookmarked" class="book"><img src="../assets/icon-bookmark-empty.svg" :alt="movie.title"/></span>
+        </div>
+        <div class="img">
+          <img :src="movie.thumbnail.regular.small" :alt="movie.title">
+        </div>
+        <div class="msg">
+          <p><span>{{movie.year}}</span><span class="span"><img class="svg" src="../assets/icon-category-tv.svg" alt="" /> {{movie.category}}</span><span class="last">{{movie.rating}}</span></p>
+          <p>{{movie.title}}</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -43,7 +65,7 @@ export default {
   },
   
     mounted() {
-      this.series = this.series.filter(src => src.category === 'TV Series' )
+      this.series = this.series.filter(src => src.isBookmarked === true )
       console.log(this.series);   
    
     },
@@ -65,6 +87,12 @@ export default {
   padding: 20px;
   width: 100%;
   /* padding-top: 10px; */
+  text-align: left;
+}
+.cont h2{
+  margin: 20px 0;
+  color: #fff;
+
 }
 .input{
     position: relative;
@@ -168,7 +196,7 @@ label{
     margin-top: 2px;
     opacity: 1;
   }
-  p{
+  p{ 
     display: flex;
     align-items: center;
     color:#fff;

@@ -34,7 +34,7 @@ export default [
       "year": 2021,
       "category": "Movie",
       "rating": "PG",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": true
     },
     {
@@ -72,7 +72,7 @@ export default [
       "year": 2021,
       "category": "Movie",
       "rating": "18+",
-      "isBookmarked": false,
+      "isBookmarked": true,
       "isTrending": true
     },
     {

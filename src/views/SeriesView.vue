@@ -2,7 +2,7 @@
   <div class="cont">
     <div class="input">
     <label>
-      <input v-model="search" type="search" placeholder="Search for TV series here" />
+      <input v-model="search" type="search" placeholder="Search for Movies here" />
     </label>
 </div>
     <div class="seriesview">

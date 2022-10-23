@@ -2,7 +2,7 @@
   <div class="cont">
     <h2>recomended</h2>
     <div class="seriesview">
-    <div class="series" v-for="movie in searchInput" :key="movie.title">
+    <div class="series" v-for="movie in movies" :key="movie.title">
       <div class="hover">
           <img src="../assets/icon-play.svg" alt=""> <span>play</span>
         </div> 
@@ -31,22 +31,7 @@ export default {
   props: {
     movies: Array
   },
-  data(){
-    return{
-      series: this.movies,
-      search: '',
-    }
-  },
   
-   
-    computed: {
-      searchInput() {
-        let series = [...this.series]
-        return series = series.filter(src => src.title.toLowerCase().includes(this.search.toLowerCase()))
-        // this.mvs = this.mvs.filter(srch => srch.title.includes('Un'))
-        // return this.series
-      }
-    }
 }
 </script>
 
@@ -98,7 +83,7 @@ label{
   gap: 10px;
   grid-template-columns: repeat(2, 1fr );
   color:#fff;
-}
+} 
 .series{ 
     position: relative;
     /* margin-bottom: 15px; */

@@ -1,14 +1,18 @@
 <template>
   <div class="container">
-    <search-component />
+    <div class="input">
+      <label>
+        <input v-model="search" type="search" placeholder="Search for Movie TV Series here" />
+      </label>
+    </div>
     <div class="main">
-
+      {{search}}
       <trending-component :data="data"/>
-      <recomended-component :movies="data"/>
+      <recomended-component :movies="searchInput"/>
 
     </div>
   </div>
-</template>
+</template> 
 
 <script>
  import Movies from '../datas/movies.js';
@@ -21,20 +25,23 @@ export default {
     recomendedComponent,
     SearchComponent,
   },
-  props:{
-    movies: Array 
-  },
+  // props:{
+  //   movies: Array 
+  // },
   data() {
     return{
-      data: Movies
+      data: Movies,
+      search: '',
     }
   },
-  // props: {
-  //   movie: Array
-  // },
-  // mounted() {
-  //   console.log(this.movie)
-  // }
+  computed: {
+      searchInput() {
+        let data = [...this.data]
+        return data = data.filter(src => src.title.toLowerCase().includes(this.search.toLowerCase()))
+        // this.mvs = this.mvs.filter(srch => srch.title.includes('Un'))
+        // return this.series
+      }
+    }
 
 } 
 </script>
@@ -47,5 +54,31 @@ export default {
 .main{
   background-color: #10141E;
 }
+.input{
+    position: relative;
+    width: 100%;
+    margin: 0;
+    /* padding: 0 12px; */
+  }
+label{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+  .input input{ 
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 15px 4em;
+    background-image: url('../assets/icon-search.svg');
+    background-position-y: center;
+    background-repeat: no-repeat;
+    /* display: flex;
+    align-items: center; */
+  }
+
+ 
 
 </style>
