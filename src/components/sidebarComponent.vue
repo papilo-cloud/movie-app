@@ -1,14 +1,14 @@
 <template>
+   <div class="aside">
   <div class="sidebar">
-   <div id="sideb">
-        <div id="logo"><img src="../assets/logo.svg" alt="" id="logoimage" class="icon" ></div>
+        <div class="logo"><img src="../assets/logo.svg" alt="" id="logoimage" class="icon" ></div>
         <ul>
-          <li id="menu"><router-link to="/"><img src="../assets/icon-nav-home.svg" alt="" class="icon" ></router-link></li>
-          <li id="icon3"><router-link to="/moviesview"><img src="../assets/icon-nav-movies.svg" class="icon" alt="" ></router-link></li>
-          <li id="icon4"><router-link to="/seriesview"><img src="../assets/icon-nav-tv-series.svg"  alt="" class="icon" ></router-link></li>
-          <li id="icon5"><router-link to="/bookmarked"><img src="../assets/icon-nav-bookmark.svg" alt="" class="icon" ></router-link></li>
+          <li class="menu"><router-link to="/"><img src="../assets/icon-nav-home.svg" alt="" class="icon" ></router-link></li>
+          <li class="icon3"><router-link to="/moviesview"><img src="../assets/icon-nav-movies.svg" class="icon" alt="" ></router-link></li>
+          <li class="icon4"><router-link to="/seriesview"><img src="../assets/icon-nav-tv-series.svg"  alt="" class="icon" ></router-link></li>
+          <li class="icon5"><router-link to="/bookmarked"><img src="../assets/icon-nav-bookmark.svg" alt="" class="icon" ></router-link></li>
         </ul>    
-     <div id="avatar"><img src="../assets/image-avatar.png" alt="" ></div>
+     <div class="avatar"><img src="../assets/image-avatar.png" alt="" ></div>
    </div>
   </div>
 </template>
@@ -20,131 +20,64 @@ export default {
 </script>
  
 <style scoped>
-*{
-  padding: 0;
+
+
+@media screen and (max-width: 1000px) {
+.aside{
+  width: 100%;
+  padding: 10px 20px;
+}
+.sidebar{
+  position: relative;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background: #161D2F;
+  border-radius: 10px;
+}
+ul{
+  position: relative;
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  flex: 2;
   margin: 0;
+  padding: 0;
+}
+li{
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 .icon{
   filter: invert(40%) sepia(37%) saturate(419%) hue-rotate(184deg) brightness(93%) contrast(89%);
+
 }
-  #sideb{
-  position: relative;
-  /* top: 50%; */
-  /* transform: translateY(-50%); */
-  background-color: var(--semiDarkBlue);
-  --red: #FC4747;
-  --darkBlue: #10141E;
-  --grayishBlue: #5A698F;
-  --semiDarkBlue: #161D2F;
-  --white: #FFFFFF;
-  display: flex;
-  }
-  ul{
-    
-  }
 #logo{
-  filter: invert(60%) sepia(90%) saturate(5299%) hue-rotate(335deg) brightness(105%) contrast(107%);
-  margin: auto 30px 20px;
-  margin-right: 120px;
   
 }
-#menu{
+
+.logo, .avatar{
+  position: relative;
+  flex: 1;
+}
+.logo{
   filter: invert(60%) sepia(90%) saturate(5299%) hue-rotate(335deg) brightness(105%) contrast(107%);
-  margin: auto 10px 20px ;
-  width: 15px;
+  flex-basis: 0%;
+  align-self: left;
+  right: 20px;
 }
-#icon3{
-  margin: auto 10px 20px ;
-  width: 15px;
-}
-#icon4{
-  margin: auto 10px 20px ;
-  width: 15px;
-}
-#icon5{
-  margin:  auto 10px 20px ;
-  width: 15px;
-  margin-right: 120px;
-}
-img{
-  width: 20px;
-  display: block;
-}
-#spare{
-  height: 15px;
-  margin: auto 50px 0;
-}
-#avatar{
-  margin:  auto 30px 20px;
-}
-#logoimage{
-  width: 20px;
-}
-.sidebar{
-  width: 100%;
-  height: 50px;
-  margin: auto;
-}
-
-/* By DeadEazy */
-
-.icon:active{
+.icon:hover{
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
-}
-@media screen and (min-width: 1000px) {
-  .element {
-  all: none;
-}
-  #logo{
-  filter: invert(60%) sepia(90%) saturate(5299%) hue-rotate(335deg) brightness(105%) contrast(107%);
-  margin: 10px auto 100px ;
-  /* margin-bottom: 70px; */
-}
-#menu{
-  filter: invert(60%) sepia(90%) saturate(5299%) hue-rotate(335deg) brightness(105%) contrast(107%);
-  margin: 30px auto 0px ;
-  /* margin-bottom: 70px; */
-}
-#icon3{
-  margin: 30px auto 0px ;
-}
-#icon4{
-  margin: 30px auto 0px ;
-}
-#icon5{
-  margin: 30px auto 40px ;
-}
-img{
-  width: 20px;
-  display: block;
-}
-#spare{
-  height: 15px;
-  margin: 50px auto 10px;
-}
-#avatar{
-  margin: 80px auto 20px;
-}
-#sideb{
-  display: flex;
-  flex-direction: column;
-  height:100vh;
-  /* margin-top: 20px; */
-  /* border-radius: 15px; */
-  background-color: var(--semiDarkBlue);
-  /* float: left; */
-  /* height: inherit; */
-  overflow: hidden;
-  width: inherit;
-  margin-top: 0;
-  position: absolute;
-  border-radius: inherit;
   
 }
-
-.sidebar{
-   height:100vh;
-  background-color: var(--white)
+.avatar{
+  left: 20px;
+}
+.avatar img{
+  left: 20px;
+  width: 34px;
 }
 }
 </style>
