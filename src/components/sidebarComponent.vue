@@ -1,11 +1,13 @@
 <template>
   <div class="sidebar">
    <div id="sideb">
-         <div id="logo"><img src="../assets/logo.svg" alt="" id="logoimage" class="icon" ></div>
-         <div id="menu"><router-link to="/"><img src="../assets/icon-nav-home.svg" alt="" class="icon" ></router-link></div>
-         <div id="icon3"><router-link to="/moviesview"><img src="../assets/icon-nav-movies.svg" class="icon" alt="" ></router-link></div>
-         <div id="icon4"><router-link to="/seriesview"><img src="../assets/icon-nav-tv-series.svg"  alt="" class="icon" ></router-link></div>
-         <div id="icon5"><router-link to="/bookmarked"><img src="../assets/icon-nav-bookmark.svg" alt="" class="icon" ></router-link></div>
+        <div id="logo"><img src="../assets/logo.svg" alt="" id="logoimage" class="icon" ></div>
+        <ul>
+          <li id="menu"><router-link to="/"><img src="../assets/icon-nav-home.svg" alt="" class="icon" ></router-link></li>
+          <li id="icon3"><router-link to="/moviesview"><img src="../assets/icon-nav-movies.svg" class="icon" alt="" ></router-link></li>
+          <li id="icon4"><router-link to="/seriesview"><img src="../assets/icon-nav-tv-series.svg"  alt="" class="icon" ></router-link></li>
+          <li id="icon5"><router-link to="/bookmarked"><img src="../assets/icon-nav-bookmark.svg" alt="" class="icon" ></router-link></li>
+        </ul>    
      <div id="avatar"><img src="../assets/image-avatar.png" alt="" ></div>
    </div>
   </div>
@@ -25,13 +27,10 @@ export default {
 .icon{
   filter: invert(40%) sepia(37%) saturate(419%) hue-rotate(184deg) brightness(93%) contrast(89%);
 }
-@media screen and (min-width: 0px) and (max-width: 1000px){
   #sideb{
-  max-width: inherit; 
-  margin: auto;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
   background-color: var(--semiDarkBlue);
   --red: #FC4747;
   --darkBlue: #10141E;
@@ -39,7 +38,9 @@ export default {
   --semiDarkBlue: #161D2F;
   --white: #FFFFFF;
   display: flex;
-  height: inherit;
+  }
+  ul{
+    
   }
 #logo{
   filter: invert(60%) sepia(90%) saturate(5299%) hue-rotate(335deg) brightness(105%) contrast(107%);
@@ -80,10 +81,9 @@ img{
   width: 20px;
 }
 .sidebar{
-  max-width: 500px;
+  width: 100%;
   height: 50px;
   margin: auto;
-}
 }
 
 /* By DeadEazy */
@@ -128,12 +128,12 @@ img{
 #sideb{
   display: flex;
   flex-direction: column;
-  /* height:100%; */
+  height:100vh;
   /* margin-top: 20px; */
   /* border-radius: 15px; */
   background-color: var(--semiDarkBlue);
   /* float: left; */
-  height: inherit;
+  /* height: inherit; */
   overflow: hidden;
   width: inherit;
   margin-top: 0;
@@ -143,6 +143,7 @@ img{
 }
 
 .sidebar{
+   height:100vh;
   background-color: var(--white)
 }
 }

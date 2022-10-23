@@ -111,7 +111,7 @@ label{
     position: relative;
     width: 100%;
     height: 120px;
-    border-radius: 22px;
+    border-radius: 12px;
     overflow: hidden;
     /* z-index: 1000; */
   }
@@ -165,7 +165,7 @@ label{
   .msg p:nth-child(2){
     color:#fff;
     font-size: 16px;
-    margin: 0;
+    margin-top: 2px;
     opacity: 1;
   }
   p{
@@ -205,7 +205,7 @@ label{
       grid-template-columns: repeat(3,1fr);
     }
     .img{ 
-      height: 180px;
+      height: 180px; 
     }
     .booked{
       top: 20px;

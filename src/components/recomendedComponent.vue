@@ -57,6 +57,12 @@ export default {
   padding: 20px;
   width: 100%;
   /* padding-top: 10px; */
+  text-align: left;
+}
+.cont h2{
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 17px;
 }
 .input{
     position: relative;
@@ -103,7 +109,7 @@ label{
     position: relative;
     width: 100%;
     height: 120px;
-    border-radius: 22px;
+    border-radius: 12px;
     overflow: hidden;
     /* z-index: 1000; */
   }

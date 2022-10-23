@@ -111,7 +111,7 @@ label{
     position: relative;
     width: 100%;
     height: 120px;
-    border-radius: 22px;
+    border-radius: 12px;
     overflow: hidden;
     /* z-index: 1000; */
   }
