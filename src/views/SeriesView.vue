@@ -9,7 +9,7 @@
     <div class="series" v-for="movie in searchInput" :key="movie.title">
       <div class="hover">
           <img src="../assets/icon-play.svg" alt=""> <span>play</span>
-        </div>
+        </div> 
       <div class="booked">
           <span v-if="movie.isBookmarked" class="book"><img src="../assets/bookMarkFull.svg" :alt="movie.title" /></span>
           <span v-if="!movie.isBookmarked" class="book"><img src="../assets/icon-bookmark-empty.svg" :alt="movie.title"/></span>
