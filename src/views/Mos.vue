@@ -43,7 +43,7 @@ export default {
   },
   
     mounted() {
-      this.series = this.series.filter(src => src.category === 'Movie' )
+      this.series = this.series.filter(src => src.category === 'TV Series' )
       console.log(this.series);   
    
     },
@@ -220,8 +220,7 @@ label{
   }
   @media screen and (min-width: 1000px) {
     .cont{
-      padding: 20px 0;
-      padding-right: 10px;
+      padding: 20px 10px 20px 0;
     }
     .seriesview{
       grid-template-columns: repeat(4, 1fr);

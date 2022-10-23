@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 // import login from '../components/Authentication/login.vue';
 import HomeView from '../views/HomeView.vue'
 import Bookmarked from '../views/Bookmarked.vue'
-import MoviesView from '../views/MoviesView.vue'
+import MoviesView from '../views/Mos.vue'
 import SeriesView from '../views/SeriesView.vue'
 
 Vue.use(VueRouter);
@@ -30,12 +30,12 @@ const routes = [
   },
   {
     name: 'MoviesView',
-    path: '/moviesview',
+    path: '/seriesview',
     component: MoviesView
   },
   {
     name: 'SeriesView',
-    path: '/seriesview',
+    path: '/moviesview',
     component: SeriesView
   }
 ];

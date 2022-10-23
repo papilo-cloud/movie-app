@@ -3,8 +3,8 @@
    <div id="sideb">
          <div id="logo"><img src="../assets/logo.svg" alt="" id="logoimage" class="icon" ></div>
          <div id="menu"><router-link to="/"><img src="../assets/icon-nav-home.svg" alt="" class="icon" ></router-link></div>
-         <div id="icon3"><router-link to="/seriesview"><img src="../assets/icon-nav-movies.svg" class="icon" alt="" ></router-link></div>
-         <div id="icon4"><router-link to="/moviesview"><img src="../assets/icon-nav-tv-series.svg"  alt="" class="icon" ></router-link></div>
+         <div id="icon3"><router-link to="/moviesview"><img src="../assets/icon-nav-movies.svg" class="icon" alt="" ></router-link></div>
+         <div id="icon4"><router-link to="/seriesview"><img src="../assets/icon-nav-tv-series.svg"  alt="" class="icon" ></router-link></div>
          <div id="icon5"><router-link to="/bookmarked"><img src="../assets/icon-nav-bookmark.svg" alt="" class="icon" ></router-link></div>
      <div id="avatar"><img src="../assets/image-avatar.png" alt="" ></div>
    </div>
