@@ -6,7 +6,6 @@
       </label>
     </div>
     <div class="main">
-      {{search}}
       <trending-component :data="data"/>
       <recomended-component :movies="searchInput"/>
 
