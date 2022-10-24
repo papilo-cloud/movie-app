@@ -19,8 +19,8 @@
         <div class="img">
           <img :src="movie.thumbnail.regular.small" :alt="movie.title">
         </div>
-        <div class="msg">
-          <p><span>{{movie.year}}</span><span class="span"><img class="svg" src="../assets/icon-category-tv.svg" alt="" /> {{movie.category}}</span><span class="last">{{movie.rating}}</span></p>
+        <div class="msg"> 
+          <p><span>{{movie.year}}</span><span v-if="movie.category === 'TV Series'" class="span"><img class="svg" src="../assets/icon-category-tv.svg" alt="" />{{movie.category}}</span> <span v-if="movie.category === 'Movie'" class="span"><img class="svg" src="../assets/icon-category-movie.svg" alt="" />{{movie.category}}</span> <span class="last">{{movie.rating}}</span></p>
           <p>{{movie.title}}</p>
         </div>
       </div>

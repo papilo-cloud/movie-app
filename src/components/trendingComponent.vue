@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 </template> 
 
 <script>
@@ -85,10 +85,12 @@ export default {
 
 .trending{
   position: relative;
+  box-sizing: border-box;
   width: 100%;
   height: 250px;
   padding: 0;
-  margin:0; 
+  padding-left: 10px;
+  /* margin-left:10px;  */
   overflow: hidden;
   text-align: left;
 }
@@ -106,7 +108,7 @@ export default {
   display: flex;
   bottom: 0;
   left: 0;
-  /* padding-left: 12px; */
+  padding-left: 12px;
 }
   .divv {
     position: relative;

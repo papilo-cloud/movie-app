@@ -13,12 +13,12 @@
       <div class="booked">
           <span v-if="movie.isBookmarked" class="book"><img src="../assets/bookMarkFull.svg" :alt="movie.title" /></span>
           <span v-if="!movie.isBookmarked" class="book"><img src="../assets/icon-bookmark-empty.svg" :alt="movie.title"/></span>
-      </div>
+      </div> 
       <div class="img">
         <img :src="movie.thumbnail.regular.small" :alt="movie.title">
       </div>
       <div class="msg">
-        <p><span>{{movie.year}}</span><span class="span"><img class="svg" src="../assets/icon-category-tv.svg" alt="" /> {{movie.category}}</span><span class="last">{{movie.rating}}</span></p>
+        <p><span>{{movie.year}}</span><span class="span"><img class="svg" src="../assets/icon-category-movie.svg" alt="" /> {{movie.category}}</span><span class="last">{{movie.rating}}</span></p>
         <p>{{movie.title}}</p>
       </div>
     </div>

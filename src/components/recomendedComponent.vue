@@ -14,7 +14,7 @@
         <img :src="movie.thumbnail.regular.small" :alt="movie.title">
       </div>
       <div class="msg">
-        <p><span>{{movie.year}}</span><span class="span"><img class="svg" src="../assets/icon-category-tv.svg" alt="" /> {{movie.category}}</span><span class="last">{{movie.rating}}</span></p>
+        <p><span>{{movie.year}}</span><span v-if="movie.category === 'TV Series'" class="span"><img class="svg" src="../assets/icon-category-tv.svg" alt="" />{{movie.category}}</span> <span v-if="movie.category === 'Movie'" class="span"><img class="svg" src="../assets/icon-category-movie.svg" alt="" />{{movie.category}}</span> <span class="last">{{movie.rating}}</span></p>
         <p>{{movie.title}}</p>
       </div>
     </div>
@@ -39,7 +39,7 @@ export default {
 .cont{
   position: relative;
   margin: 0;
-  padding: 20px;
+  padding: 20px 10px;
   width: 100%;
   /* padding-top: 10px; */
   text-align: left;

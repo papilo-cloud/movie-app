@@ -46,7 +46,7 @@ export default {
       this.series = this.series.filter(src => src.category === 'TV Series' )
       console.log(this.series);   
    
-    },
+    }, 
     computed: {
       searchInput() {
         let series = [...this.series]
