@@ -8,7 +8,7 @@
 
     <h2>Bookmarked Movies</h2>
     <div class="seriesview">
-      <div class="series" v-for="movie in searchInput" :key="movie.title" v-if="movie.category === 'Movie'">
+      <div class="series" v-for="movie in searchInput" :key="movie.title" v-if="movie.category === 'Movie' ">
         <div class="hover">
             <img src="../assets/icon-play.svg" alt=""> <span>play</span>
         </div> 
@@ -28,7 +28,7 @@
 
     <h2>Bookmarked TV Series</h2>
     <div class="seriesview">
-      <div class="series" v-for="movie in searchInput" :key="movie.title"v-if="movie.category === 'TV Series'" >
+      <div class="series" v-for="movie in searchInput" :key="movie.title" v-if="movie.category === 'TV Series'" >
         <div class="hover">
             <img src="../assets/icon-play.svg" alt=""> <span>play</span>
         </div> 

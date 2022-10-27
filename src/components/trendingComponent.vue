@@ -1,8 +1,10 @@
 <template>
-  <div class="trending" ref="reff"
-   @mousedown="mouseDown" @mouseup="mouseUp" @mousemove="mouseMove">
+  <div class="trending" ref="reff" 
+  @mousedown="mouseDown" @mouseup="mouseUp" @mousemove="mouseMove"
+   @touchstart="mouseDown" @touchend="mouseUp" @touchmove="mouseMove"
+  >
     <h3>Trendings</h3>
-    <div class="trending-img" ref="refs" >
+    <div class="trending-img" ref="refs"  v-dragscroll:nochilddrag>
       <div v-for="(img, x) in trendings" class="divv" :key="x">
         <div class="hover">
           <img src="../assets/icon-play.svg" alt=""> <span>play</span>

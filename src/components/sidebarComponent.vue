@@ -58,7 +58,6 @@ li{
 @media screen and (min-width: 1020px) {
   .aside{
     height: 100vh;
-    background: hotpink;
     z-index: 100000;
     padding-top: 20px;
   }
