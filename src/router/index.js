@@ -19,7 +19,7 @@ const routes = [
   //   name: 'home',
   //   component: () => import(/* webpackChunkName: "about" */ '../views/HomeView.vue'),
   // },
-  {
+  { 
     path: '/bookmarked',
     name: 'Bookmarked',
     // route level code-splitting

@@ -84,7 +84,7 @@ export default {
 .cont{
   position: relative;
   margin: 0;
-  padding: 20px;
+  padding: 20px 10px;
   width: 100%;
   /* padding-top: 10px; */
   text-align: left;

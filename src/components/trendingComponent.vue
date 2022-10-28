@@ -1,10 +1,8 @@
 <template>
   <div class="trending" ref="reff" 
-  @mousedown="mouseDown" @mouseup="mouseUp" @mousemove="mouseMove"
-   @touchstart="mouseDown" @touchend="mouseUp" @touchmove="mouseMove"
   >
     <h3>Trendings</h3>
-    <div class="trending-img" ref="refs"  v-dragscroll:nochilddrag>
+    <div class="trending-img">
       <div v-for="(img, x) in trendings" class="divv" :key="x">
         <div class="hover">
           <img src="../assets/icon-play.svg" alt=""> <span>play</span>
@@ -47,49 +45,51 @@ export default {
       this.trendings = this.trendings.filter(src => src.thumbnail.trending !== undefined)    
     },
 
-    methods:{
-     mouseDown(e) {
-		  slider = this.$refs.refs
-      // alert('Hello World')
-      pressed = true;
-			start = e.offsetX - slider.offsetLeft;
-    },
-    mouseUp(){
-      pressed = false
-    },
-    mouseMove(e){
-		slider = this.$refs.refs
-      if(!pressed) return 
-			e.preventDefault()
-			slider.style.left = `${e.offsetX - start}px`
-			this.checkBoundary() 
-    },
-     checkBoundary(){
-      trending = this.$refs.reff        
-		slider = this.$refs.refs
-			let outer = trending.getBoundingClientRect()
-			let inner = slider.getBoundingClientRect()
-      // console.log(inner);
+  //   methods:{
+  //    mouseDown(e) {
+	// 	  slider = this.$refs.refs
+  //     // alert('Hello World')
+  //     pressed = true;
+	// 		start = e.offsetX - slider.offsetLeft;
+  //   },
+  //   mouseUp(){
+  //     pressed = false
+  //   },
+  //   mouseMove(e){
+	// 	slider = this.$refs.refs
+  //     if(!pressed) return 
+	// 		e.preventDefault()
+	// 		slider.style.left = `${e.offsetX - start}px`
+	// 		this.checkBoundary() 
+  //   },
+  //    checkBoundary(){
+  //     trending = this.$refs.reff        
+	// 	slider = this.$refs.refs
+	// 		let outer = trending.getBoundingClientRect()
+	// 		let inner = slider.getBoundingClientRect()
+  //     // console.log(inner);
 
-			if (parseInt(slider.style.left) > 0) {
-				slider.style.left = '0px'
-			}
-			if (inner.right < outer.right) {
-				slider.style.left = `-${inner.width - outer.width}px`
-			}
-		}
-  },
+	// 		if (parseInt(slider.style.left) > 0) {
+	// 			slider.style.left = '0px'
+	// 		}
+	// 		if (inner.right < outer.right) {
+	// 			slider.style.left = `-${inner.width - outer.width}px`
+	// 		}
+	// 	}
+  // },
 }
 
 </script>
 
-<style scoped>
-
+<style scoped> 
+::-webkit-scrollbar{
+  display: none;
+}
 .trending{
   position: relative;
   box-sizing: border-box;
   width: 100%;
-  height: 250px;
+  height: 200px;
   padding: 0;
   padding-left: 10px;
   /* margin-left:10px;  */
@@ -104,18 +104,16 @@ export default {
   letter-spacing: 1px;
 }
 .trending-img{
-  width: 350%;
-  pointer-events: none;
-	position: absolute;
+  max-width: 100%;
   display: flex;
-  bottom: 0;
-  left: 0;
+  align-items: center;
   padding-left: 12px;
+  overflow-x: scroll;
 }
   .divv {
     position: relative;
-    width: 600px;
-    height: 200px;
+    min-width: 70%;
+    height: 170px;
     margin-right: 10px;
     border-radius: 12px;
     overflow: hidden;
@@ -216,11 +214,8 @@ export default {
     object-fit: fill;
   }
   @media screen and (min-width: 768px) {
-    .trending-img{
-      width: 350%;
-    }
     .divv{
-      width: 800px;
+      width: 70%;
     }
     .booked{
       top: 20px;
@@ -234,11 +229,15 @@ export default {
     }
   }
   @media screen and (min-width: 1000px) {
+    .trending{
+      height: 250px;
+    }
     .trending-img{
-      width: 200%;
+      /* pointer-events: none; */
     }
     .divv{
-      width: 600px;
+      height: 200px;
+      width: 70%;
     }
   }
 </style> 

@@ -3,10 +3,14 @@
   <div class="sidebar">
         <div class="logo"><img src="../assets/logo.svg" alt="" id="logoimage" class="icon" ></div>
         <ul>
-          <li class="menu"><router-link to="/"><img src="../assets/icon-nav-home.svg" alt="" class="icon" ></router-link></li>
-          <li class="icon3"><router-link to="/moviesview"><img src="../assets/icon-nav-movies.svg" class="icon" alt="" ></router-link></li>
-          <li class="icon4"><router-link to="/seriesview"><img src="../assets/icon-nav-tv-series.svg"  alt="" class="icon" ></router-link></li>
-          <li class="icon5"><router-link to="/bookmarked"><img src="../assets/icon-nav-bookmark.svg" alt="" class="icon" ></router-link></li>
+          <li class="menu" :class="{ active: isActive == 0}"
+          @click="chaneActive(0)"><router-link to="/"><img src="../assets/icon-nav-home.svg" alt="" class="icon" ></router-link></li>
+          <li class="icon3" :class="{ active: isActive == 1}"
+          @click="chaneActive(1)"><router-link to="/moviesview"><img src="../assets/icon-nav-movies.svg" class="icon" alt="" ></router-link></li>
+          <li class="icon4" :class="{ active: isActive == 2}"
+          @click="chaneActive(2)"><router-link to="/seriesview"><img src="../assets/icon-nav-tv-series.svg"  alt="" class="icon" ></router-link></li>
+          <li class="icon5" :class="{ active: isActive == 3}"
+          @click="chaneActive(3)"><router-link to="/bookmarked"><img src="../assets/icon-nav-bookmark.svg" alt="" class="icon" ></router-link></li>
         </ul>    
      <div class="avatar"><img src="../assets/image-avatar.png" alt="" ></div>
    </div>
@@ -14,8 +18,25 @@
 </template>
  
 <script>
+
 export default {
- 
+ data() {
+  return{
+    isActive: [0],
+  }
+ },
+ methods: {
+  chaneActive(index) {
+    this.isActive = index
+  }
+},
+mounted() {
+  window.addEventListener('load', () => {
+    // alert('Hello')
+  this.$router.push('/')
+
+  })
+}
 }
 </script>
  
@@ -45,7 +66,7 @@ li{
   filter: invert(40%) sepia(37%) saturate(419%) hue-rotate(184deg) brightness(93%) contrast(89%);
 
 }
-.logo{
+.logo, .active{
   filter: invert(60%) sepia(90%) saturate(5299%) hue-rotate(335deg) brightness(105%) contrast(107%);
 }
 .icon:hover{
@@ -95,7 +116,7 @@ ul{
   justify-content: space-evenly;
   flex: 2;
 }
-
+ 
 
 .logo, .avatar{
   position: relative;
