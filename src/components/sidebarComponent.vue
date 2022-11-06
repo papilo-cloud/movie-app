@@ -15,8 +15,8 @@
      <div class="avatar"><img src="../assets/image-avatar.png" alt="" ></div>
    </div>
   </div>
-</template>
- 
+</template> 
+  
 <script>
 
 export default {

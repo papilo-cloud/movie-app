@@ -2,13 +2,15 @@
   <div class="cont">
     <h2>recomended</h2>
     <div class="seriesview">
-    <div class="series" v-for="movie in movies" :key="movie.title">
+    <div class="series" v-for="(movie) in movies" :key="movie.title">
       <div class="hover">
           <img src="../assets/icon-play.svg" alt=""> <span>play</span>
         </div> 
       <div class="booked">
-          <span v-if="movie.isBookmarked" class="book"><img src="../assets/bookMarkFull.svg" :alt="movie.title" /></span>
-          <span v-if="!movie.isBookmarked" class="book"><img src="../assets/icon-bookmark-empty.svg" :alt="movie.title"/></span>
+          <button @click="isBookmarked(movie.title)">
+            <span v-if="movie.isBookmarked" class="book"><img src="../assets/bookMarkFull.svg" :alt="movie.title" /></span>
+            <span v-if="!movie.isBookmarked" class="book"><img src="../assets/icon-bookmark-empty.svg" :alt="movie.title"/></span>
+          </button>
       </div>
       <div class="img">
         <img :src="movie.thumbnail.regular.small" :alt="movie.title">
@@ -23,15 +25,17 @@
 </template>
 
 <script>
-//  import Movies from '../datas/movies.js';
 export default {
-  // components: {
-  //   Movies
-  // },
-  props: {
-    movies: Array
-  },
-  
+    props: {
+      movies: Array
+    },
+
+    methods: {
+      isBookmarked(index){
+        this.$store.dispatch('toggleBookmarked',index)
+        console.log(index)
+      },
+    }
 }
 </script>
 
@@ -106,7 +110,7 @@ label{
     height: 100%;
   } 
   .series:hover .img img{
-    cursor: pointer;
+    cursor: pointer; 
     opacity: .4;
   }
    .hover{
@@ -139,6 +143,13 @@ label{
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
+  }
+  .booked button{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 1px 4px;
   }
   .msg{
     position: relative;
@@ -196,7 +207,7 @@ label{
     }
     p:nth-child(1){
       font-size: 12px;
-    }
+    } 
     .msg p:nth-child(2){
       font-size: 20px;
     }
@@ -207,7 +218,7 @@ label{
         padding-right: 10px;
     }
     .seriesview{
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: 1fr 1fr 1fr 1fr;
     }
   }
 </style>

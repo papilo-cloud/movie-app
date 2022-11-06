@@ -51,30 +51,25 @@
 <script>
 //  import Movies from '../datas/movies.js';
 export default {
-  // components: {
-  //   Movies
-  // },
-  props: {
-    movies: Array
-  },
+
   data(){
     return{
-      series: this.movies,
+      series: [],
       search: '',
     }
   },
   
     mounted() {
       this.series = this.series.filter(src => src.isBookmarked === true )
-      console.log(this.series);   
+      console.log(this.series); 
+
+      this.series = this.$store.getters.getStates
    
     },
     computed: {
       searchInput() {
         let series = [...this.series]
         return series = series.filter(src => src.title.toLowerCase().includes(this.search.toLowerCase()))
-        // this.mvs = this.mvs.filter(srch => srch.title.includes('Un'))
-        // return this.series
       }
     }
 }
@@ -235,7 +230,7 @@ label{
     .img{ 
       height: 180px; 
     }
-    .booked{
+    .booked{ 
       top: 20px;
       right: 20px;
     }

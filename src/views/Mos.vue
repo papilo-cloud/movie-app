@@ -1,15 +1,15 @@
 <template>
   <div class="cont">
     <div class="input">
-    <label>
-      <input v-model="search" type="search" placeholder="Search for TV series here" />
-    </label>
-</div>
+      <label>
+        <input v-model="search" type="search" placeholder="Search for TV series here" />
+      </label>
+    </div>
     <div class="seriesview">
     <div class="series" v-for="movie in searchInput" :key="movie.title">
       <div class="hover">
           <img src="../assets/icon-play.svg" alt=""> <span>play</span>
-        </div> 
+        </div>
       <div class="booked">
           <span v-if="movie.isBookmarked" class="book"><img src="../assets/bookMarkFull.svg" :alt="movie.title" /></span>
           <span v-if="!movie.isBookmarked" class="book"><img src="../assets/icon-bookmark-empty.svg" :alt="movie.title"/></span>
@@ -25,32 +25,28 @@
 </div>
   </div>
 </template>
-
+ 
 <script>
 //  import Movies from '../datas/movies.js';
 export default {
-  // components: {
-  //   Movies
-  // },
-  props: {
-    movies: Array
-  },
-  data(){
-    return{
-      series: this.movies,
-      search: '',
-    }
-  },
-  
-    mounted() {
-      this.series = this.series.filter(src => src.category === 'TV Series' )
-      console.log(this.series);   
-   
+  data() {
+      return{
+        movies: [],
+        search: ''
+      }
     }, 
+    mounted() {
+      this.movies = this.$store.getters.getState
+      console.log(this.movies);
+
+      this.movies = this.movies.filter(src => src.category === 'TV Series' )
+      console.log(this.movies);   
+   
+    },
     computed: {
       searchInput() {
-        let series = [...this.series]
-        return series = series.filter(src => src.title.toLowerCase().includes(this.search.toLowerCase()))
+        let series = [...this.movies]
+        return series.filter(src => src.title.toLowerCase().includes(this.search.toLowerCase()))
         // this.mvs = this.mvs.filter(srch => srch.title.includes('Un'))
         // return this.series
       }
@@ -91,7 +87,7 @@ label{
     align-items: center; */
   }
 
- 
+
 .seriesview{
   position: relative;
   margin: 0;
@@ -99,7 +95,7 @@ label{
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(2, 1fr );
-  color:#fff;
+  color:#fff; 
 }
 .series{ 
     position: relative;
@@ -111,7 +107,7 @@ label{
     position: relative;
     width: 100%;
     height: 120px;
-    border-radius: 12px;
+    border-radius: 22px;
     overflow: hidden;
     /* z-index: 1000; */
   }
@@ -201,6 +197,9 @@ label{
   }
 
   @media screen and (min-width: 768px) {
+    .cont{
+      /* padding: 20px; */
+    }
     .seriesview{
       grid-template-columns: repeat(3,1fr);
     }
@@ -208,7 +207,7 @@ label{
       height: 180px;
     }
     .booked{
-      top: 20px;
+      top: 20px; 
       right: 20px;
     }
     p:nth-child(1){
@@ -219,9 +218,6 @@ label{
     }
   }
   @media screen and (min-width: 1000px) {
-    .cont{
-      padding: 20px 10px 20px 0;
-    }
     .seriesview{
       grid-template-columns: repeat(4, 1fr);
     }

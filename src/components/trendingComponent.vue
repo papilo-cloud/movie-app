@@ -28,20 +28,18 @@
     let pressed = false
 		let start;
     let slider;
-    let trending; 
+    let trending;  
 		
 export default {
-  props: {
-    data: Array
-  },
+ 
   data(){
     return{
-      trendings: this.data,
-
+      trendings: []
     }
-  },
-  
-    mounted() {
+  }, mounted() {
+      this.trendings = this.$store.getters.getState
+      console.log(this.movies);
+    
       this.trendings = this.trendings.filter(src => src.thumbnail.trending !== undefined)    
     },
 
@@ -217,7 +215,7 @@ export default {
     .divv{
       width: 70%;
     }
-    .booked{
+    .booked{ 
       top: 20px;
       right: 20px;
     }

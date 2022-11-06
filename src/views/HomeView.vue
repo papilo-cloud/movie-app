@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
+  <div class="conts">
     <div class="input">
       <label>
         <input v-model="search" type="search" placeholder="Search for Movie TV Series here" />
       </label>
     </div>
     <div class="main">
-      <trending-component :data="data"/>
+      <trending-component :movies="movies"/>
       <recomended-component :movies="searchInput"/>
 
     </div>
@@ -14,7 +14,6 @@
 </template> 
 
 <script>
- import Movies from '../datas/movies.js';
 import trendingComponent from '../components/trendingComponent.vue'
 import recomendedComponent from '../components/recomendedComponent.vue'
 import SearchComponent from '../components/searchComponent.vue';
@@ -28,15 +27,19 @@ export default {
   //   movies: Array 
   // },
   data() {
-    return{
-      data: Movies,
-      search: '',
-    }
-  },
+      return{
+        movies: [],
+        search: '',
+      }
+    }, 
+    mounted() {
+      this.movies = this.$store.getters.getState
+      console.log(this.movies);
+    },
   computed: {
       searchInput() {
-        let data = [...this.data]
-        return data = data.filter(src => src.title.toLowerCase().includes(this.search.toLowerCase()))
+        let data = [...this.movies]
+        return data.filter(src => src.title.toLowerCase().includes(this.search.toLowerCase()))
         // this.mvs = this.mvs.filter(srch => srch.title.includes('Un'))
         // return this.series
       }
@@ -45,13 +48,16 @@ export default {
 } 
 </script>
  
-<style scoped>
-.container{
+<style scoped> 
+.conts{
   position:relative;
+  width: 100%;
+  margin: 0; 
   padding: 0;
 }
 .main{
   background-color: #10141E;
+  width: 100%;
 }
 .input{
     position: relative;
@@ -78,6 +84,6 @@ label{
     align-items: center; */
   }
 
- 
+  
 
 </style>
