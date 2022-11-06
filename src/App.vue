@@ -6,7 +6,7 @@
     <div class="routes">
       <router-view/>
     </div>
-  </div>
+  </div> 
 
 </template>
  
@@ -66,31 +66,20 @@
   filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
 } */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
 #app{
   display: grid;
   grid-template-columns: 80px 1fr;
 }
 
- #side{
-  height: inherit; 
-  width: 60px;
-  background-color: var(--semiDarkBlue);
-  border-radius: 15px;
-  position: sticky;
-  margin: 0 auto;
-  top: 0;
-}
 #side .remove-side{
   display:none;
 }
 .side_bar{
   margin: 0;
   padding: 0;
-  position: sticky;
   top:0;
-  height: 95vh;
-  margin-top: 15px;
+  height:  100vh;
 }
 
 }

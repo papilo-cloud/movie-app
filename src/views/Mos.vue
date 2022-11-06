@@ -23,7 +23,7 @@
       </div>
     </div>
 </div>
-  </div>
+  </div> 
 </template>
  
 <script>
@@ -73,7 +73,7 @@ label{
   margin: 0;
   padding: 0;
 }
-  .input input{ 
+  .input input{  
     width: 100%;
     background: transparent;
     border: none;
